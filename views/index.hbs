@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <title>ShortCut</title>
+    <style>
+        .url {
+            font-size: 30px;
+        }
+        .label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="h-100">
+    <div class="h-100 d-flex flex-column bg-light align-items-center justify-content-center">
+        <div class="container">
+            <h1 class="text-center">Relax URL shortcut</h1>
+            <form action="/url" method="POST">
+                <div class="form-group">
+                    <label class="label">Your url</label>
+                    <input required class="form-control" type="url" name="url">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Give me a shortcut</button>
+                </div>
+            </form>
+            {{#if url}}
+            <div class="text-left url">
+                <div>
+                    <span>Your short url is</span>
+                    <a href="{{url}}">{{toUrl url}}</a>
+                </div>
+            </div>
+            {{/if}}
+            {{#if error}}
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</body>
+
+</html>
